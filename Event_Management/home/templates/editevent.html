@@ -1,0 +1,148 @@
+<h1>Edit Your Event</h1>
+<form method="POST">
+    <div class="form-group">
+        <label for="title">Enter your Event Title:</label>
+        <input type="text" id="title" name="title" value="{{ event.etitle }}" style="text-transform: uppercase;">
+    </div>
+    <div class="form-group">
+        <label for="desc">Enter your Event Description:</label>
+        <textarea id="desc" name="desc">{{ event.edesc }}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="cities">Choose a city:</label>
+        <select id="cities" name="cities">
+            <option selected>{{ event.ecity }}</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="delhi">Delhi</option>
+            <option value="bangalore">Bangalore</option>
+            <option value="kolkata">Kolkata</option>
+            <option value="chennai">Chennai</option>
+            <option value="hyderabad">Hyderabad</option>
+            <option value="ahmedabad">Ahmedabad</option>
+            <option value="pune">Pune</option>
+            <option value="surat">Surat</option>
+            <option value="jaipur">Jaipur</option>
+            <option value="Bhubaneswar">Bhubaneswar</option>
+            <option value="Berhampur">Berhampur</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="location">Enter Event Location:</label>
+        <input type="text" id="location" name="location" value="{{ event.elocation }}">
+    </div>
+    <div class="form-group">
+        <label for="date">Select a date:</label>
+        <input type="date" id="date" name="date" value="{{ event.edate|date:'Y-m-d' }}">
+    </div>
+    <div class="form-group">
+        <label for="time">Select a time:</label>
+        <input type="time" id="time" name="time" value="{{ event.etime|time:'H:i' }}">
+    </div>
+    <div class="form-group">
+        <label for="vprice">Enter Price of VIP Ticket:</label>
+        <input type="number" id="vprice" step="1" min="0" name="vprice" value="{{ event.vticket }}">
+    </div>
+    <div class="form-group">
+        <label for="gprice">Enter Price of General Ticket:</label>
+        <input type="number" id="gprice" step="1" min="0" name="gprice" value="{{ event.gticket }}">
+    </div>
+    <input type="submit" value="Update Event">
+    {% csrf_token %}
+</form>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="time"],
+form input[type="number"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+form input[type="textarea"] {
+    resize: vertical;
+    height: 100px;
+}
+
+form input[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+form select {
+    font-size: 14px;
+    height: auto;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form p {
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
+}
+
+</style>

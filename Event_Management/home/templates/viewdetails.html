@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <style>
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .event-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .event-info {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .event-info strong {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .event-info span {
+            display: block;
+            margin-top: 5px;
+        }
+
+        .event-info p {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .event-container {
+                padding: 15px;
+                margin: 5px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Event Details</h1>
+
+    {% for data in event %}
+    <div class="event-container">
+        <div class="event-info">
+            <p><strong>Event Title:</strong> {{ data.etitle }}</p>
+            <p><strong>Event Description:</strong> {{ data.edesc }}</p>
+            <p><strong>Event Date:</strong> {{ data.edate }}</p>
+            <p><strong>Nearest City:</strong> {{ data.ecity }}</p>
+            <p><strong>Event Location:</strong> {{ data.elocation }}</p>
+            <p><strong>Event Time:</strong> {{ data.etime }}</p>
+            <p><strong>VIP Ticket Price:</strong> {{ data.vticket }}</p>
+            <p><strong>General Ticket Price:</strong> {{ data.gticket }}</p>
+        </div>
+        <a href="/book/{{ data.eid }}">
+            <button>BUY</button>
+        </a>
+    </div>
+    {% endfor %}
+
+</body>
+</html>

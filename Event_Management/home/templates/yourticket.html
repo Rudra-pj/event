@@ -1,0 +1,66 @@
+<h1>Your Tickets</h1>
+<div class="tickets-container">
+    {% for booking in bookings %}
+    <div class="ticket">
+        <div class="ticket-title">Event Title: {{ booking.eid.etitle }}</div>
+        <div class="ticket-details">
+            <p>Quantity: <span>{{ booking.quantity }}</span></p>
+            <p>Booking Date: <span>{{ booking.bdate }}</span></p>
+            <p>Event Date: <span>{{ booking.eid.edate }}</span></p>
+            <p>Event Location: <span>{{ booking.eid.elocation }}</span></p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+.tickets-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ticket {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fdfdfd;
+}
+
+.ticket:last-child {
+    margin-bottom: 0;
+}
+
+.ticket-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.ticket-details {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.ticket-details span {
+    font-weight: bold;
+    color: #333;
+}
+
+</style>

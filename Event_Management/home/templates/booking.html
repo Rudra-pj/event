@@ -1,0 +1,89 @@
+<h1>Book Ticket</h1>
+<form method="POST">
+    <div>
+        <label>Select Ticket Type:</label>
+        <input type="radio" name="ticket_type" value="vip"> VIP
+        <input type="radio" name="ticket_type" value="general"> General
+    </div>
+    <div>
+        <label for="quantity">Select Quantity:</label>
+        <input type="number" id="quantity" name="Quantity" step="1" min="1">
+    </div>
+    <div>
+        <input type="submit" value="BUY">
+    </div>
+    {% csrf_token %}
+</form>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+form input[type="radio"] {
+    margin-right: 5px;
+}
+
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+form input[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+form p {
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
+}
+
+</style>

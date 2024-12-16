@@ -1,0 +1,98 @@
+<h1>Your Events</h1>
+<div class="events-container">
+    {% for data in events %}
+    <div class="event">
+        <span class="event-title">{{data.etitle}}</span>
+        <div class="event-buttons">
+            <a href="/viewdetails/{{data.eid}}"><button>View details</button></a>
+            <a href="/editevent/{{data.eid}}"><button>Edit</button></a>
+            <a href="/dashboard/{{data.eid}}"><button>Dashboard</button></a>
+            <a href="/deletevent/{{data.eid}}"><button>Delete</button></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-image: linear-gradient(to right, #11876b8c, #2a3755);
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+.events-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-image:linear-gradient(to left, #88893c8c, #4ad4d4);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.event:last-child {
+    border-bottom: none;
+}
+
+.event-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+.event-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.event-buttons a {
+    text-decoration: none;
+}
+
+.event-buttons button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.event-buttons button:hover {
+    opacity: 0.9;
+}
+
+.event-buttons button:nth-child(1) {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.event-buttons button:nth-child(2) {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.event-buttons button:nth-child(3) {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.event-buttons button:nth-child(4) {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+</style>

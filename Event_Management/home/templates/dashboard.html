@@ -1,0 +1,138 @@
+<table>
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Ticket Type</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+            <tr>
+                <td data-label="User Name">{{ booking.uid.uname }}</td>
+                <td data-label="Email">{{ booking.uid.uemail }}</td>
+                <td data-label="Phone">{{ booking.uid.uphone }}</td>
+                <td data-label="Ticket Type">{{ booking.ttype }}</td>
+                <td data-label="Quantity">{{ booking.quantity }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="5">No bookings available.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #444;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+p {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+table {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+}
+
+table thead th {
+    padding: 10px 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:last-child {
+    border-bottom: none;
+}
+
+table tbody td {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+td[colspan] {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+    padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    table thead {
+        display: none;
+    }
+
+    table tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    table tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 10px;
+        color: #333;
+    }
+}
+
+</style>
